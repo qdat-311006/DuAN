@@ -45,26 +45,25 @@ namespace ChatServer
             t2.Start();
         }
 
-        static void ChuyenTinNhan(Socket nguoiGui, Socket nguoiNhan, string tenNguoiGui)
+                static void ChuyenTinNhan(Socket nguoiGui, Socket nguoiNhan, string tenNguoiGui)
         {
             try
             {
                 while (true)
                 {
                     byte[] data = new byte[4096];
-
+        
                     int size = nguoiGui.Receive(data);
-
+        
                     if (size <= 0)
                         break;
-
-                    string tinNhan = Encoding.UTF8.GetString(data, 0, size);
-
-                    Console.WriteLine(tenNguoiGui + ": " + tinNhan);
-
-                    string tinChuyenTiep = tenNguoiGui + ": " + tinNhan;
-
-                    Gui(nguoiNhan, tinChuyenTiep);
+        
+                    string duLieuMaHoa = Encoding.UTF8.GetString(data, 0, size);
+        
+                    Console.WriteLine(tenNguoiGui + " đã gửi 1 tin nhắn mã hóa:");
+                    Console.WriteLine(duLieuMaHoa);
+        
+                    Gui(nguoiNhan, duLieuMaHoa);
                 }
             }
             catch
