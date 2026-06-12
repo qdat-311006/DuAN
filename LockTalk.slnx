@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="LockTalkClient/LockTalkClient.csproj" />
+  <Project Path="LockTalkServer/LockTalkServer.csproj" />
+</Solution>
